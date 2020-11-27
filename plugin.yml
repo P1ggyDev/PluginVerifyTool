@@ -1,0 +1,9 @@
+name: PluginVerifyTool
+author: P1ggyDev
+version: 1.0.0
+api: 3.16.0
+main: P1ggyDev\PluginVerifyTool\Main
+
+commands:
+  verifyplugin:
+    description: Verify plugin
