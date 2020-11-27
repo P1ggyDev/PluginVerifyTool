@@ -1,4 +1,5 @@
 ![GitHub](https://img.shields.io/github/license/P1ggyDev/PluginVerifyTool?style=flat-square)
+![GitHub Repo stars](https://img.shields.io/github/stars/P1ggyDev/PluginVerifyTool?style=flat-square)
 ![PoggitCI](https://poggit.pmmp.io/ci.badge/P1ggyDev/PluginVerifyTool/PluginVerifyTool?build=3)
 # Plugin Verify Tool
 **PocketMine's plugin verification tool using SHA256 hash**
