@@ -6,9 +6,11 @@
 **PocketMine's plugin verification tool using SHA256 hash**
 
 ## Usage
+- To verify plugin
 ```verifyplugin <plugin name> <plugin hash>```  
 Ex: ```verifyplugin Sheep 5bce5fc181f786a27efdb907d0975540e843739a7117edb53dabc1e350ba9735```  
-If it returns ```valid!``` you are holding the official file.
-
-## Verify
-PluginVerifyTool_v1.0.1.phar (From GitHub): ```e43eba51ce70ce3ab76ac22669ebaa0c1af3c309fa2cfc5bc96346f519882aaa``` 
+If it returns ```valid!``` you are holding the official file.  
+- To hash plugin
+```hash <plugin name>```  
+Ex: ```hash Sheep```  
+It'll returns ```5bce5fc181f786a27efdb907d0975540e843739a7117edb53dabc1e350ba9735```

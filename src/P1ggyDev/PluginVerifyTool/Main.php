@@ -13,11 +13,11 @@ class Main extends PluginBase {
         if($cmd->getName() == "verifyplugin") {
             if(!$sender instanceof Player) {
                 if(empty($args[0])) {
-                    $sender->sendMessage(C::YELLOW . "Usage: /verifyplugin <plugin> <hash> \n" . C::RED . "Example: /verifyplugin Sheep.phar 5bce5fc181f786a27efdb907d0975540e843739a7117edb53dabc1e350ba9735");                    
+                    $sender->sendMessage(C::YELLOW . "Usage: /verifyplugin <plugin name> <hash> \n" . C::RED . "Example: /verifyplugin Sheep 5bce5fc181f786a27efdb907d0975540e843739a7117edb53dabc1e350ba9735");                    
                     return true;
                 } else {
                     if(empty($args[1])) {
-                        $sender->sendMessage(C::YELLOW . "Usage: /verifyplugin <plugin> <hash> \n" . C::RED . "Example: /verifyplugin Sheep.phar 5bce5fc181f786a27efdb907d0975540e843739a7117edb53dabc1e350ba9735");
+                        $sender->sendMessage(C::YELLOW . "Usage: /verifyplugin <plugin name> <hash> \n" . C::RED . "Example: /verifyplugin Sheep 5bce5fc181f786a27efdb907d0975540e843739a7117edb53dabc1e350ba9735");
                         return true;
                     } else {
                         $pluginName = $args[0];
@@ -41,6 +41,29 @@ class Main extends PluginBase {
                 }
             } else {
                 $sender->sendMessage(C::RED . "Please use this command in console");
+            }
+        } else {
+            if($cmd->getName() == "hash") {
+                if((!$sender instanceof Player)) {
+                    if(empty($args[0])) {
+                        $sender->sendMessage(C::YELLOW . "Usage: /verifyplugin hash <plugin name> \n" . C::RED . "Example: /verifyplugin hash Sheep");                    
+                        return true;
+                    } else {
+                        $pluginName = $args[0];
+                        $pluginDirectory = $this->getServer()->getDataPath() . "plugins/" . $pluginName . ".phar";
+                        if(file_exists($pluginDirectory)) {
+                            $hashStr = hash_file("sha256", $pluginDirectory);
+                            $sender->sendMessage($pluginName . ".phar" . " : " . strtolower($hashStr));
+                            return true;
+                        } else {
+                            $sender->sendMessage(C::RED . "Plugin not found!");
+                            return true;
+                        }
+                    }
+                } else {
+                    $sender->sendMessage(C::RED . "Please use this command in console");
+                    return true;
+                }
             }
         }
         return true;
