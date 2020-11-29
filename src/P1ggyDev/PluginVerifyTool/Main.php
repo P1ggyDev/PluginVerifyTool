@@ -42,29 +42,6 @@ class Main extends PluginBase {
             } else {
                 $sender->sendMessage(C::RED . "Please use this command in console");
             }
-        } else {
-            if($cmd->getName() == "hash") {
-                if((!$sender instanceof Player)) {
-                    if(empty($args[0])) {
-                        $sender->sendMessage(C::YELLOW . "Usage: /verifyplugin hash <plugin name> \n" . C::RED . "Example: /verifyplugin hash Sheep");                    
-                        return true;
-                    } else {
-                        $pluginName = $args[0];
-                        $pluginDirectory = $this->getServer()->getDataPath() . "plugins/" . $pluginName . ".phar";
-                        if(file_exists($pluginDirectory)) {
-                            $hashStr = hash_file("sha256", $pluginDirectory);
-                            $sender->sendMessage($pluginName . ".phar" . " : " . strtolower($hashStr));
-                            return true;
-                        } else {
-                            $sender->sendMessage(C::RED . "Plugin not found!");
-                            return true;
-                        }
-                    }
-                } else {
-                    $sender->sendMessage(C::RED . "Please use this command in console");
-                    return true;
-                }
-            }
         }
         return true;
     }
